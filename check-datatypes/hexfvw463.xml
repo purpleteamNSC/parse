@@ -1,0 +1,788 @@
+<patterndb version="4">
+  <ruleset id="cisco_ftd-2" description="Custom parsing rule for Cisco FTD logs" provider="Helix Parsing Team" url="">
+    <rules>
+      <rule id="cisco_ftd_custom-1024-01" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-02-14T18:05:31Z, ConnectionID: 57021, AccessControlRuleAction: Allow, SrcIP: 187.24.226.58, DstIP: 192.168.1.75, SrcPort: 1924, DstPort: 443, Protocol: tcp, IngressInterface: Outside, EgressInterface: Inside, IngressZone: OutsideZone, EgressZone: InsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: SRVFMC_INTERNET, Prefilter Policy: Default Prefilter Policy, User: Not Found, InitiatorPackets: 2, ResponderPackets: 1, InitiatorBytes: 140, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-02" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 4, FirstPacketSecond: 2023-02-14T18:05:29Z, ConnectionID: 31851, AccessControlRuleAction: Allow, SrcIP: 177.10.40.1, DstIP: 208.67.222.222, SrcPort: 57631, DstPort: 53, Protocol: udp, IngressInterface: DMZ, EgressInterface: Outside, IngressZone: DMZzone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: DNS_UMBRELLA_OUT, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: DNS client, ApplicationProtocol: DNS, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 85, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-03" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 1, FirstPacketSecond: 2023-02-14T18:25:13Z, ConnectionID: 1624, AccessControlRuleAction: Allow, SrcIP: 10.0.98.17, DstIP: 104.26.2.114, SrcPort: 46824, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_WIFI, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 723, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, URLCategory: Transportation, URLReputation: Favorable, URL: https://parceiros.voltzmotors.com-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-04" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-02-14T18:25:21Z, ConnectionID: 49754, AccessControlRuleAction: Allow, SrcIP: 10.0.98.17, DstIP: 2.17.166.10, SrcPort: 45718, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_WIFI, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: Mercado Livre, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 723, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, URLCategory: Infrastructure and Content Delivery Networks, URLReputation: Favorable, URL: https://secure.mlstatic.com-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-05" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-02-14T18:05:24Z, ConnectionID: 56525, AccessControlRuleAction: Allow, SrcIP: 192.168.108.19, DstIP: 52.114.142.198, SrcPort: 53849, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: UnimedBelemf10230, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: Microsoft Teams, ConnectionDuration: 6, InitiatorPackets: 19, ResponderPackets: 30, InitiatorBytes: 2132, ResponderBytes: 34674, NAPPolicy: Balanced Security and Connectivity, URLCategory: Online Meetings, URLReputation: Trusted, URL: https://us-prod.asyncgw.teams.microsoft.com-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-06" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-02-14T18:05:33Z, ConnectionID: 26016, AccessControlRuleAction: Allow, SrcIP: 177.10.40.1, DstIP: 208.67.222.222, SrcPort: 57204, DstPort: 53, Protocol: udp, IngressInterface: DMZ, EgressInterface: Outside, IngressZone: DMZzone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: DNS_UMBRELLA_OUT, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: DNS client, ApplicationProtocol: DNS, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 114, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity, DNSQuery: 3.courier-sandbox-push-apple.com.akadns.net, DNSRecordType: a host address, DNSResponseType: No Error-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ DNSQuery: @ESTRING:query:, @DNSRecordType: @ESTRING::,@ DNSResponseType: @PCRE:response:[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-07" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-02-14T18:03:53Z, ConnectionID: 18757, AccessControlRuleAction: Allow, SrcIP: 104.41.56.229, DstIP: 192.168.1.75, SrcPort: 11490, DstPort: 443, Protocol: tcp, IngressInterface: Outside, EgressInterface: Inside, IngressZone: OutsideZone, EgressZone: InsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: SRVFMC_INTERNET, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: Web Browsing, ConnectionDuration: 100, InitiatorPackets: 9, ResponderPackets: 6, InitiatorBytes: 2231, ResponderBytes: 1658, NAPPolicy: Balanced Security and Connectivity, URL: https://synergius.unimedbelem.com.br-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-08" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, FirstPacketSecond: 2023-02-14T18:05:41Z, ConnectionID: 0, AccessControlRuleAction: Block, SrcIP: 146.88.240.4, DstIP: 177.10.41.195, SrcPort: 35933, DstPort: 443, Protocol: tcp, IngressInterface: Outside, EgressInterface: Outside, IngressZone: OutsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: IP-SUSPEITO-DEST, Prefilter Policy: Default Prefilter Policy, User: Not Found, InitiatorPackets: 0, ResponderPackets: 0, InitiatorBytes: 0, ResponderBytes: 0, NAPPolicy: No Rules Active-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-09" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, FirstPacketSecond: 2023-02-14T18:03:35Z, ConnectionID: 0, AccessControlRuleAction: Allow, SrcIP: 10.1.127.15, DstIP: 20.189.173.7, SrcPort: 53837, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: Not Found, ConnectionDuration: 95, InitiatorPackets: 12, ResponderPackets: 10, InitiatorBytes: 677, ResponderBytes: 6343, NAPPolicy: No Rules Active-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-10" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-02-14T18:10:26Z, ConnectionID: 38357, AccessControlRuleAction: Allow, SrcIP: 10.0.98.30, DstIP: 23.61.142.204, SrcPort: 64955, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_WIFI_WHATSAPP, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: iCloud, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 727, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, URL: https://www.icloud.com-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-11" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-02-14T18:01:17Z, ConnectionID: 64570, AccessControlRuleAction: Allow, SrcIP: 192.168.107.142, DstIP: 13.107.21.200, ICMPType: Echo Request, ICMPCode: No Code, Protocol: icmp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_REDE_INTERNA, Prefilter Policy: Default Prefilter Policy, User: UnimedBelemf08907, Client: ICMP client, ApplicationProtocol: ICMP, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 106, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, ICMPType: @ESTRING:type:,@ ICMPCode: @ESTRING::,@ Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-12" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-02-14T18:04:21Z, ConnectionID: 11058, AccessControlRuleAction: Allow, SrcIP: 10.5.17.52, DstIP: 23.61.148.153, SrcPort: 62122, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Microsoft-WNS/10.0, Client: Microsoft WNS, ClientVersion: 10.0, ApplicationProtocol: HTTP, WebApplication: Microsoft, ConnectionDuration: 61, InitiatorPackets: 6, ResponderPackets: 4, InitiatorBytes: 549, ResponderBytes: 566, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: tile-service.weather.microsoft.com, URLCategory: Computers and Internet, URLReputation: Trusted, URL: http://tile-service.weather.microsoft.com/pt-BR/livetile/preinstall?region=BR&appid=C98EA5B0842DBB9405BBF071E1DA76512D21FE36&FORM=Threshold-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-13" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 4, FirstPacketSecond: 2023-02-14T18:26:39Z, ConnectionID: 61017, AccessControlRuleAction: Allow, SrcIP: 10.5.22.81, DstIP: 17.253.10.202, SrcPort: 49311, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_WIFI_WHATSAPP, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: Apple Maps, ApplicationProtocol: HTTPS, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 727, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, URL: https://gspe85-ssl.ls.apple.com -->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-14" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-02-14T18:04:15Z, ConnectionID: 11816, AccessControlRuleAction: Allow, SrcIP: 10.101.0.249, DstIP: 200.220.186.82, SrcPort: 61506, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: SERVIDORES_LIBERADOS_OUT, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, ConnectionDuration: 0, InitiatorPackets: 14, ResponderPackets: 17, InitiatorBytes: 800, ResponderBytes: 8968, NAPPolicy: Balanced Security and Connectivity, URLCategory: Finance, URLReputation: Trusted, URL: https://ymbcash.santander.com.br-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-15" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 1, FirstPacketSecond: 2023-02-14T18:05:13Z, ConnectionID: 41711, AccessControlRuleAction: Allow, SrcIP: 10.101.3.127, DstIP: 23.52.37.13, SrcPort: 18280, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: MICROSOFT_DEVICE_METADATA_RETRIEVAL_CLIENT, Client: Web browser, ApplicationProtocol: HTTP, WebApplication: Microsoft, ConnectionDuration: 0, InitiatorPackets: 6, ResponderPackets: 6, InitiatorBytes: 2040, ResponderBytes: 632, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: go.microsoft.com, URLCategory: Computers and Internet, URLReputation: Trusted, URL: http://go.microsoft.com/fwlink/?LinkID=252669&clcid=0x409-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-16" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-02-14T18:02:26Z, ConnectionID: 43136, AccessControlRuleAction: Allow, SrcIP: 10.101.2.173, DstIP: 142.250.78.193, SrcPort: 23786, DstPort: 443, Protocol: udp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: SERVIDORES_LIBERADOS_OUT, Prefilter Policy: Default Prefilter Policy, User: UnimedBelemf03265, Client: QUIC client, ApplicationProtocol: QUIC, ConnectionDuration: 34, InitiatorPackets: 63, ResponderPackets: 144, InitiatorBytes: 6993, ResponderBytes: 171386, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-17" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 1, FirstPacketSecond: 2023-02-14T18:25:54Z, ConnectionID: 4712, AccessControlRuleAction: Allow, SrcIP: 10.5.37.67, DstIP: 212.159.204.247, SrcPort: 58281, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LAN_OUT - PRIME, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: Web Browsing, ConnectionDuration: 1, InitiatorPackets: 8, ResponderPackets: 9, InitiatorBytes: 1295, ResponderBytes: 1072, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-18" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 4, FirstPacketSecond: 2023-02-14T18:01:48Z, ConnectionID: 15694, AccessControlRuleAction: Allow, SrcIP: 10.0.98.25, DstIP: 142.251.135.67, SrcPort: 46434, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_WIFI_WHATSAPP, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36, Client: Chrome, ClientVersion: 60.0.3112.32, ApplicationProtocol: HTTP, WebApplication: Google, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 433, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: connectivitycheck.gstatic.com, URL: http://connectivitycheck.gstatic.com/generate_204-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-19" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: High, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-02-14T18:26:15Z, ConnectionID: 42973, AccessControlRuleAction: Allow, AccessControlRuleReason: File Monitor, SrcIP: 192.168.6.159, DstIP: 8.241.206.126, SrcPort: 55532, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: UnimedBelemf08822, UserAgent: Microsoft-Delivery-Optimization/10.0, Client: Web browser, ApplicationProtocol: HTTP, WebApplication: Microsoft, ConnectionDuration: 11, FileCount: 1, InitiatorPackets: 308, ResponderPackets: 694, InitiatorBytes: 23089, ResponderBytes: 944501, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: 3.tlu.dl.delivery.mp.microsoft.com, URLCategory: Software Updates, URLReputation: Trusted, URL: http://3.tlu.dl.delivery.mp.microsoft.com/filestreamingservice/-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ AccessControlRuleReason: @ESTRING:reason:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, FileCount: @NUMBER:count:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-20" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: High, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-02-14T18:05:55Z, ConnectionID: 17838, AccessControlRuleAction: Block, AccessControlRuleReason: File Block, SrcIP: 10.0.98.20, DstIP: 47.243.31.232, SrcPort: 36314, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_STREAMING, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: okhttp/3.12.3, Client: Web browser, ApplicationProtocol: HTTP, ConnectionDuration: 1, FileCount: 1, InitiatorPackets: 27, ResponderPackets: 9, InitiatorBytes: 34605, ResponderBytes: 602, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: wnm217.perrylegame.com, URLCategory: Business and Industry, URLReputation: Neutral, URL: http://wnm217.perrylegame.com/service_stats/v3/collect/encrypt?timestamp=1676397971429&encode=gzip&sign=b25ff06d8b295c69f94029b1d5f9662d-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ AccessControlRuleReason: @ESTRING:reason:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @NUMBER:duration:@, FileCount: @NUMBER:count:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-21" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-02-14T18:05:06Z, ConnectionID: 24053, AccessControlRuleAction: Allow, SrcIP: 10.101.3.131, DstIP: 104.18.21.226, SrcPort: 47046, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: UnimedBelemf04312, UserAgent: Microsoft-CryptoAPI/10.0, Client: Microsoft CryptoAPI, ClientVersion: 10.0, ApplicationProtocol: HTTP, WebApplication: GlobalSign, ConnectionDuration: 1, InitiatorPackets: 5, ResponderPackets: 4, InitiatorBytes: 237, ResponderBytes: 1892, NAPPolicy: Balanced Security and Connectivity, HTTPResponse: 200, ReferencedHost: ocsp.globalsign.com, URLCategory: Computer Security, URLReputation: Favorable, URL: http://ocsp.globalsign.com/root-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPResponse: @NUMBER:statuscode:@, ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-22" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-02-14T18:01:08Z, ConnectionID: 6423, AccessControlRuleAction: Allow, SrcIP: 10.5.37.67, DstIP: 130.143.187.37, ICMPType: Echo Request, ICMPCode: No Code, Protocol: icmp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LAN_OUT - PRIME, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: ICMP client, ApplicationProtocol: ICMP, ConnectionDuration: 0, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 74, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, ICMPType: @ESTRING:type:,@ ICMPCode: @ESTRING::,@ Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-23" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-02-14T18:04:56Z, ConnectionID: 13522, AccessControlRuleAction: Allow, SrcIP: 10.5.37.30, DstIP: 212.159.204.247, SrcPort: 63113, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LAN_OUT - PRIME, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: Web Browsing, InitiatorPackets: 3, ResponderPackets: 2, InitiatorBytes: 393, ResponderBytes: 212, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-24" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-02-14T18:11:44Z, ConnectionID: 45530, AccessControlRuleAction: Allow, SrcIP: 10.5.22.43, DstIP: 149.154.175.55, SrcPort: 57718, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: LIBERA_ACESSO_WIFI, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: Telegram, InitiatorPackets: 2, ResponderPackets: 1, InitiatorBytes: 140, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-25" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-02-14T18:04:55Z, ConnectionID: 13480, AccessControlRuleAction: Block, SrcIP: 10.5.13.20, DstIP: 185.188.32.1, SrcPort: 61613, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: APP-BLACKLIST, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Mozilla/4.0 (compatible; MSIE 6.0; DynGate), Client: DynGate, ApplicationProtocol: HTTP, WebApplication: TeamViewer, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 350, ResponderBytes: 66, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: master1.teamviewer.com, URL: http://master1.teamviewer.com/din.aspx?s=00000000&id=225090150&client=DynGate&p=10000001-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client:@ @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-26" class="cisco_ftd">
+        <!--fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-02-14T18:01:30Z, ConnectionID: 8119, AccessControlRuleAction: Block, SrcIP: 192.168.6.168, DstIP: 104.211.114.143, SrcPort: 54181, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Bel√©m, AccessControlRuleName: BLOQUEIO_GEOLOCALIZACAO_OUT, Prefilter Policy: Default Prefilter Policy, User: UnimedBelemf04897, Client: Web browser, ApplicationProtocol: HTTP, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 258, ResponderBytes: 66, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: aplus1.aplus-manager.com, URL: http://aplus1.aplus-manager.com/sys/hello-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URL: @ESTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-27" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430003: EventPriority: High, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-04-03T17:15:29Z, ConnectionID: 40905, AccessControlRuleAction: Allow, AccessControlRuleReason: Intrusion Monitor, SrcIP: 10.0.98.30, DstIP: 157.240.216.61, SrcPort: 54654, DstPort: 443, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_WIFI_WHATSAPP, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: WhatsApp client, ApplicationProtocol: WhatsApp, ConnectionDuration: 78, IPSCount: 1, InitiatorPackets: 20, ResponderPackets: 34, InitiatorBytes: 3773, ResponderBytes: 3082, NAPPolicy: Balanced Security and Connectivity'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@@ESTRING:::@@ESTRING::,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client:@ESTRING:client:,@ ApplicationProtocol:@ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:,@@ESTRING::,@ IPSCount:@ESTRING:count:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-28" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-04-03T18:22:15Z, ConnectionID: 25381, AccessControlRuleAction: Allow, SrcIP: 23.45.14.135, DstIP: 10.101.0.17, SrcPort: 44140, DstPort: 443, Protocol: tcp, IngressInterface: Outside, EgressInterface: Inside, IngressZone: OutsideZone, EgressZone: InsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: SRVM317_IN_LAN, Prefilter Policy: Default Prefilter Policy, User: Not Found, ConnectionDuration: 0, InitiatorPackets: 3, ResponderPackets: 2, InitiatorBytes: 182, ResponderBytes: 120, NAPPolicy: Balanced Security and Connectivity'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ ConnectionDuration: @NUMBER:duration:,@@ESTRING::,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @PCRE::[^,]+$@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-29" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-04-03T18:38:36Z, ConnectionID: 50401, AccessControlRuleAction: Allow, SrcIP: 192.168.5.113, DstIP: 151.101.1.44, SrcPort: 53961, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_REDE_INTERNA, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\f08195, Client: Web browser, ApplicationProtocol: HTTP, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 433, ResponderBytes: 66, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: images.archive-digger.com:80, URLCategory: News, URLReputation: Favorable, URL: http://images.archive-digger.com:80/taboola/image/fetch/f_jpg%2Cq_auto%2Ch_89%2Cw_144%2Cc_fill%2Cg_faces:auto%2Ce_sharpen/http%3A%2F%2Fcdn.taboola.com%2Flibtrc%2Fstatic%2Fthumbnails%2Fae674b9de53d5e6af28e20726912439a.png'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@,@ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-30" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-04-04T13:49:25Z, ConnectionID: 54122, AccessControlRuleAction: Allow, SrcIP: 10.2.97.29, DstIP: 142.251.129.67, SrcPort: 49650, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_WIFI, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36, Client: Chrome, ClientVersion: 60.0.3112.32, ApplicationProtocol: HTTP, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 421, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: www.googleapis.cn, URLCategory: Search Engines and Portals, URLReputation: Favorable, URL: http://www.googleapis.cn/generate_204'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, @Client: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-31" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-04-05T17:07:31Z, ConnectionID: 4365, AccessControlRuleAction: Allow, SrcIP: 10.101.3.105, DstIP: 34.104.35.123, SrcPort: 28108, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_REDE_INTERNA, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\c04445, UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36, Client: Chrome, ClientVersion: 111.0.0.0, ApplicationProtocol: HTTP, WebApplication: Google Play, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 578, ResponderBytes: 66, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: edgedl.me.gvt1.com, URLCategory: Computers and Internet, URLReputation: Favorable, URL: http://edgedl.me.gvt1.com/edgedl/release2/chrome_component/hve4hqsq4ou2kph2i6l32qeoja_20230410.519703188/obedbbhbpmojnkanicioggnmelmoomoc_20230410.519703188_all_PTBR500000_adno22fj3u5yvspwc4sut7b46e5q.crx3'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, @Client: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-32" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 1, FirstPacketSecond: 2023-04-05T17:22:07Z, ConnectionID: 26439, AccessControlRuleAction: Allow, SrcIP: 192.168.7.169, DstIP: 108.139.134.111, SrcPort: 65486, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_REDE_INTERNA, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\f01206, UserAgent: Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0, Client: Firefox, ClientVersion: 72.0, ApplicationProtocol: HTTP, WebApplication: UOL, InitiatorPackets: 5, ResponderPackets: 1, InitiatorBytes: 3307, ResponderBytes: 66, NAPPolicy: Balanced Security and Connectivity, HTTPReferer: https://www.uol.com.br/, ReferencedHost: www.uol.com.br, URLCategory: News, URLReputation: Favorable, URL: http://www.uol.com.br/'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, @Client: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPReferer: @ESTRING:referrer:,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-33" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-04-05T17:28:12Z, ConnectionID: 3596, AccessControlRuleAction: Allow, SrcIP: 191.56.51.22, DstIP: 10.101.0.17, SrcPort: 45798, DstPort: 80, Protocol: tcp, IngressInterface: Outside, EgressInterface: Inside, IngressZone: OutsideZone, EgressZone: InsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: SRVM317_IN_LAN, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Microsoft Office/16.0 (Microsoft Outlook 16.0.14326; Pro), Mozilla/4.0 (compatible; ms-office; MSOffice rmj), Client: Web browser, ApplicationProtocol: HTTP, WebApplication: Office 365, ConnectionDuration: 72, InitiatorPackets: 7, ResponderPackets: 4, InitiatorBytes: 960, ResponderBytes: 620, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: www.unimedbelem.com.br, URL: http://www.unimedbelem.com.br/zimbra/assinatura.gif'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, @Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-34" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 4, FirstPacketSecond: 2023-04-05T17:47:11Z, ConnectionID: 63091, AccessControlRuleAction: Allow, SrcIP: 104.28.63.98, DstIP: 10.101.0.17, SrcPort: 18285, DstPort: 80, Protocol: tcp, IngressInterface: Outside, EgressInterface: Inside, IngressZone: OutsideZone, EgressZone: InsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: SRVM317_IN_LAN, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Mozilla/5.0, Client: Web browser, ApplicationProtocol: HTTP, ConnectionDuration: 30, InitiatorPackets: 6, ResponderPackets: 3, InitiatorBytes: 609, ResponderBytes: 554, NAPPolicy: Balanced Security and Connectivity, HTTPResponse: 302, ReferencedHost: www.unimedbelem.com.br, URL: http://www.unimedbelem.com.br/zimbra/assinatura.gif'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430003@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, @Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPResponse: @NUMBER:@, ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-35" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-04-05T17:55:05Z, ConnectionID: 37470, AccessControlRuleAction: Allow, SrcIP: 10.0.98.14, DstIP: 157.240.216.16, SrcPort: 46870, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_WIFI_RSOCIAL, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Facebook, Client: Facebook, ApplicationProtocol: HTTP, WebApplication: Portal from Facebook, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 331, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: portal.fb.com, URLCategory: Social Networking, URLReputation: Favorable, URL: http://portal.fb.com/mobile/status.php'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, @Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-36" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 4, FirstPacketSecond: 2023-04-05T17:58:57Z, ConnectionID: 50088, AccessControlRuleAction: Allow, SrcIP: 192.168.11.32, DstIP: 185.148.113.176, SrcPort: 49751, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_REDE_INTERNA, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\c03157, UserAgent: Microsoft-Delivery-Optimization/10.0, Client: Web browser, ApplicationProtocol: HTTP, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 519, ResponderBytes: 58, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: 185.148.113.176, URLCategory: Uncategorized, URLReputation: Neutral, URL: http://185.148.113.176/filestreamingservice/files/4dd135ac-f0f3-4ae8-b910-14e9839b77cf/pieceshash?cacheHostOrigin=dl.delivery.mp.microsoft.com'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, C@lient: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-37" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-04-05T18:04:53Z, ConnectionID: 15855, AccessControlRuleAction: Block, SrcIP: 10.5.37.41, DstIP: 47.241.12.227, SrcPort: 36572, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: BLOQUEIO_GEOLOCALIZACAO_OUT, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Dalvik/2.1.0 (Linux; U; Android 9; BeyondTV2 Build/PPR1.180610.011), Client: RealAudio, ClientVersion: 9, ApplicationProtocol: HTTP, InitiatorPackets: 3, ResponderPackets: 1, InitiatorBytes: 395, ResponderBytes: 74, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: hwntp-o.api.leiniao.com, URL: http://hwntp-o.api.leiniao.com/api/get_time'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, C@lient: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-38" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-04-05T18:04:52Z, ConnectionID: 64974, AccessControlRuleAction: Allow, SrcIP: 10.0.98.98, DstIP: 98.98.13.98, SrcPort: 34974, DstPort: 443, Protocol: udp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_WIFI, Prefilter Policy: Default Prefilter Policy, User: Not Found, Client: QUIC client, ClientVersion: 46, ApplicationProtocol: QUIC, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 1392, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity'-->
+        <patterns>
+          <pattern>@ESTRING::%@@PCRE:eventid:FTD-4-430002@: EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ClientVersion: @NUMBER:version:@, ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ANYSTRING::@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-39" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430004: DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 6, FirstPacketSecond: 2023-04-05T19:40:48Z, ConnectionID: 8545, SrcIP: 10.1.128.80, DstIP: 200.208.171.80, SrcPort: 55341, DstPort: 80, Protocol: tcp, FileDirection: Download, FileAction: Malware Cloud Lookup, FileSHA256: a58af76e160b9232a2fa55449cd9ffb0e43e9af31d094f513d71919cc66f1593, SHA_Disposition: Unknown, SperoDisposition: Spero detection not performed on file, FileName: a6741b0690cf20ecf4600b2249df9accf6e00690.zip, FileType: JAR, FileSize: 1289, ApplicationProtocol: HTTP, Client: Web browser, WebApplication: Apple sites, User: Not Found, FilePolicy: AMP, FileStorageStatus: File Size Is Too Small, FileSandboxStatus: File Size Is Too Small, URI: http://appldnld.apple.com/ios10.0/031-96898-20170613-6B3C72AA-4FA3-11E7-8777-44F3D6EEE68A/com_apple_MobileAsset_MediaSupport/a6741b0690cf20ecf4600b2249df9accf6e00690.zip, IngressVRF: Global, EgressVRF: Global'-->
+        <patterns>
+          <pattern>@ESTRING::%@@ESTRING:eventid::@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ FileDirection: @ESTRING:direction:,@ FileAction: @ESTRING:action:,@ FileSHA256: @ESTRING:hash:,@@ESTRING::,@@ESTRING::,@ FileName: @ESTRING:filename:,@ FileType: @ESTRING:filetype:,@ FileSize: @NUMBER:@, ApplicationProtocol: @ESTRING:next_protocol:,@ Client: @ESTRING:client:,@ WebApplication: @ESTRING:application:,@ User: @ESTRING:username:,@ FilePolicy: @ESTRING::,@ FileStorageStatus: @ESTRING::,@ FileSandboxStatus: @ESTRING::,@ URI: @ESTRING:uri:,@@ESTRING::,@@ANYSTRING::@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-40" class="cisco_ftd">
+        <!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 4, FirstPacketSecond: 2023-04-05T19:40:44Z, ConnectionID: 46610, AccessControlRuleAction: Allow, SrcIP: 192.168.2.178, DstIP: 146.112.61.106, SrcPort: 50113, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\f08433, UserAgent: Microsoft-CryptoAPI/10.0, Client: Microsoft CryptoAPI, ClientVersion: 10.0, ApplicationProtocol: HTTP, ConnectionDuration: 0, InitiatorPackets: 5, ResponderPackets: 4, InitiatorBytes: 424, ResponderBytes: 918, NAPPolicy: Balanced Security and Connectivity, HTTPResponse: 403, ReferencedHost: crl.prod.cagenerator.pki.strln.net, URLCategory: Infrastructure and Content Delivery Networks, URLReputation: Favorable, URL: http://crl.prod.cagenerator.pki.strln.net/crl.pem'-->
+        <patterns>
+          <pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, C@lient: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPResponse: @NUMBER:@, ReferencedHost: @ESTRING::,@ URLCategory: @ESTRING:category:,@ URLReputation: @ESTRING:description:,@ URL: @ANYSTRING:url:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_ftd_custom-1024-41" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-05-29T00:39:05Z, ConnectionID: 44163, AccessControlRuleAction: Allow, SrcIP: 10.101.3.165, DstIP: 45.227.91.64, SrcPort: 35408, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\f09349, UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57, Client: Edge Chromium, ClientVersion: 113.0.1774.57, ApplicationProtocol: HTTP, WebApplication: Microsoft, ConnectionDuration: 2, InitiatorPackets: 670, ResponderPackets: 2082, InitiatorBytes: 38199, ResponderBytes: 2966834, NAPPolicy: Balanced Security and Connectivity, ReferencedHost: msedge.b.tlu.dl.delivery.mp.microsoft.com, URL: http://msedge.b.tlu.dl.delivery.mp.microsoft.com/filestreamingservice/files/d6dac2cd-b55a-4a7d-aeb4-1cff97bb9dd4?P1=1685621370&P2=404&P3=2&P4=kVc03HIeIvmQx3cF068igO3L0idFETy0lH%2fkb8nBjY89NfMNHR2YnUCrvZONiM14%2bVUV78wosovqjZg5g%2fVQKQ%3d%3d'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, C@lient: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-42" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 5, FirstPacketSecond: 2023-05-29T00:37:15Z, ConnectionID: 38532, AccessControlRuleAction: Allow, SrcIP: 10.101.2.191, DstIP: 192.16.49.85, SrcPort: 35036, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\f04267, UserAgent: Microsoft-CryptoAPI/10.0, Client: Microsoft CryptoAPI, ClientVersion: 10.0, ApplicationProtocol: HTTP, WebApplication: Domain for DigiCert OCSP Service, ConnectionDuration: 111, InitiatorPackets: 7, ResponderPackets: 5, InitiatorBytes: 630, ResponderBytes: 1021, NAPPolicy: Balanced Security and Connectivity, HTTPResponse: 200, ReferencedHost: ocsp.digicert.com, URL: http://ocsp.digicert.com/MFEwTzBNMEswSTAJBgUrDgMCGgUABBQ50otx%2Fh0Ztl%2Bz8SiPI7wEWVxDlQQUTiJUIBiV5uNu5g%2F6%2BrkS7QYXjzkCEA177el9ggmWelJjG4vdGL0%3D'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, C@lient: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPResponse: @ESTRING:responsecode:,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-43" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430004: DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-05-29T03:31:43Z, ConnectionID: 9043, SrcIP: 192.168.4.72, DstIP: 45.227.91.64, SrcPort: 64539, DstPort: 80, Protocol: tcp, FileDirection: Download, FileAction: Malware Cloud Lookup, FileSHA256: 397b610554d67abaddfdc287ced6a9bf1ada4d4c9ddf53e01c6a061bed2860ef, SHA_Disposition: Unknown, SperoDisposition: Spero detection not performed on file, FileName: 56de9002-d533-4370-a13c-e259facb2cae, FileType: ZIP, FileSize: 731418, ApplicationProtocol: HTTP, Client: Web browser, WebApplication: Microsoft, User: UnimedBelem\f05795, FilePolicy: AMP, FileStorageStatus: File Stored, FileStaticAnalysisStatus: Failed to Send, ArchiveSHA256: 397b610554d67abaddfdc287ced6a9bf1ada4d4c9ddf53e01c6a061bed2860ef, ArchiveFileName: 56de9002-d533-4370-a13c-e259facb2cae, ArchiveFileStatus: Extracted, URI: http://4.tlu.dl.delivery.mp.microsoft.com/filestreamingservice/files/56de9002-d533-4370-a13c-e259facb2cae?P1=1685331472&P2=404&P3=2&P4=nRGfRURhMQq2o9s8xRKX%2b%2bsGwqtEA%2f8k1IYR3mFPMbB7z5AOnqRMpPKql5gjNATJ0MfatwISGFVK25rC4KkHVQ%3d%3d, IngressVRF: Global, EgressVRF: Global'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ FileDirection: @ESTRING:direction:,@ FileAction: @ESTRING::,@ FileSHA256: @ESTRING:sha256:,@ SHA_Disposition: @ESTRING:disposition:,@ SperoDisposition: @ESTRING::,@ FileName: @ESTRING:filename:,@ FileType: @ESTRING:filetype:,@ FileSize: @ESTRING::,@ ApplicationProtocol: @ESTRING:next_protocol:,@ Client: @ESTRING:client:,@ WebApplication: @ESTRING:application:,@ User: @ESTRING:username:,@ FilePolicy: @ESTRING::,@ FileStorageStatus: @ESTRING::,@ FileStaticAnalysisStatus: @ESTRING:status:,@ ArchiveSHA256: @ESTRING::,@ ArchiveFileName: @ESTRING::,@ ArchiveFileStatus: @ESTRING::,@ URI: @ESTRING:url:,@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-44" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430004: DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-05-29T03:31:44Z, ConnectionID: 9080, SrcIP: 192.168.4.72, DstIP: 8.241.199.254, SrcPort: 64540, DstPort: 80, Protocol: tcp, FileDirection: Download, FileAction: Malware Cloud Lookup, FileSHA256: 009f7db134c6061fe8f260e075374a28abbbc44e6cf23de107f93ec8b8c59816, SHA_Disposition: Clean, SperoDisposition: Spero detection not performed on file, FileName: 1ee8f2d3-cfbe-4514-a83a-5aaadb44df5e, FileType: ZIP, FileSize: 859530, ApplicationProtocol: HTTP, Client: Web browser, WebApplication: Microsoft, User: UnimedBelem\f05795, FilePolicy: AMP, ArchiveSHA256: 009f7db134c6061fe8f260e075374a28abbbc44e6cf23de107f93ec8b8c59816, ArchiveFileName: 1ee8f2d3-cfbe-4514-a83a-5aaadb44df5e, ArchiveFileStatus: Extracted, URI: http://3.tlu.dl.delivery.mp.microsoft.com/filestreamingservice/files/1ee8f2d3-cfbe-4514-a83a-5aaadb44df5e?P1=1685331493&P2=404&P3=2&P4=c8D0LB3p6ryU1eC2suq4PMmY8o6ugMg1CLRmC3NibVGcNQzsvYMsPsnhHoiC7DqflRQvTfsQ%2fyC3C2VaiQFiSg%3d%3d, IngressVRF: Global, EgressVRF: Global'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ FileDirection: @ESTRING:direction:,@ FileAction: @ESTRING::,@ FileSHA256: @ESTRING:sha256:,@ SHA_Disposition: @ESTRING:disposition:,@ SperoDisposition: @ESTRING::,@ FileName: @ESTRING:filename:,@ FileType: @ESTRING:filetype:,@ FileSize: @ESTRING::,@ ApplicationProtocol: @ESTRING:next_protocol:,@ Client: @ESTRING:client:,@ WebApplication: @ESTRING:application:,@ User: @ESTRING:username:,@ FilePolicy: @ESTRING::,@ ArchiveSHA256: @ESTRING::,@ ArchiveFileName: @ESTRING::,@ ArchiveFileStatus: @ESTRING::,@ URI: @ESTRING:url:,@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-45" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430002: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 2, FirstPacketSecond: 2023-05-29T17:24:10Z, ConnectionID: 64891, AccessControlRuleAction: Block, SrcIP: 192.168.100.142, DstIP: 104.211.114.143, SrcPort: 54423, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: BLOQUEIO_GEOLOCALIZACAO_OUT, Prefilter Policy: Default Prefilter Policy, User: UnimedBelem\f03133, Client: Web browser, ApplicationProtocol: HTTP, InitiatorPackets: 3, ResponderPackets: 3, InitiatorBytes: 258, ResponderBytes: 524, NAPPolicy: Balanced Security and Connectivity, HTTPResponse: 200, ReferencedHost: aplus1.aplus-manager.com, URL: http://aplus1.aplus-manager.com/sys/hello'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPResponse:@ESTRING:responsecode:,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-46" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 1, FirstPacketSecond: 2023-05-29T17:21:09Z, ConnectionID: 32585, AccessControlRuleAction: Allow, SrcIP: 10.101.2.171, DstIP: 152.199.55.200, SrcPort: 58750, DstPort: 80, Protocol: tcp, IngressInterface: Inside, EgressInterface: Outside, IngressZone: InsideZone, EgressZone: OutsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: LIBERA_ACESSO_365, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36, Client: Chrome, ClientVersion: 113.0.0.0, ApplicationProtocol: HTTP, WebApplication: Microsoft Azure, ConnectionDuration: 181, InitiatorPackets: 10, ResponderPackets: 9, InitiatorBytes: 978, ResponderBytes: 1154, NAPPolicy: Balanced Security and Connectivity, HTTPReferer: http://report/, ReferencedHost: az416426.vo.msecnd.net, URL: http://az416426.vo.msecnd.net/scripts/a/ai.0.js'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:, Client@@ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPReferer: @ESTRING:referrer:,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-47" class="cisco_ftd">
+				<!--'fp01 : %FTD-4-430003: EventPriority: Low, DeviceUUID: 94285ccc-6a3b-11eb-bd51-fe725c4b7cf7, InstanceID: 3, FirstPacketSecond: 2023-05-29T17:22:54Z, ConnectionID: 28757, AccessControlRuleAction: Allow, SrcIP: 191.235.49.244, DstIP: 10.101.0.17, SrcPort: 8384, DstPort: 80, Protocol: tcp, IngressInterface: Outside, EgressInterface: Inside, IngressZone: OutsideZone, EgressZone: InsideZone, IngressVRF: Global, EgressVRF: Global, ACPolicy: Unimed Belém, AccessControlRuleName: SRVM317_IN_LAN, Prefilter Policy: Default Prefilter Policy, User: Not Found, UserAgent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0), Client: Internet Explorer, ClientVersion: 10.0, ApplicationProtocol: HTTP, ConnectionDuration: 75, InitiatorPackets: 7, ResponderPackets: 3, InitiatorBytes: 839, ResponderBytes: 554, NAPPolicy: Balanced Security and Connectivity, HTTPResponse: 302, ReferencedHost: www.unimedbelem.com.br, URL: http://www.unimedbelem.com.br/producao/SisAudit/Email_CAU.jpg'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ User: @ESTRING:username:,@ UserAgent: @ESTRING:useragent:,@ Client: @ESTRING:client:,@ ClientVersion: @ESTRING:version:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ ConnectionDuration: @ESTRING:duration:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ HTTPResponse: @ESTRING:responsecode:,@ ReferencedHost: @ESTRING::,@ URL: @ANYSTRING:url:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-48" class="cisco_ftd">
+				<!--': %FTD-7-430002: EventPriority: Low, DeviceUUID: 6a2b77ce-0985-11ee-b104-e287deda077e, InstanceID: 1, FirstPacketSecond: 2023-08-07T16:42:30Z, ConnectionID: 29870, AccessControlRuleAction: Allow, SrcIP: 10.11.12.3, DstIP: 10.129.0.171, SrcPort: 57113, DstPort: 135, Protocol: tcp, IngressInterface: inside, EgressInterface: outside, IngressZone: inside, EgressZone: outside, IngressVRF: Global, EgressVRF: Global, ACPolicy: NetSafe MXDR Access Policy, AccessControlRuleName: Permitir Trafego Outbound, Prefilter Policy: Default Prefilter Policy, InitiatorPackets: 1, ResponderPackets: 1, InitiatorBytes: 66, ResponderBytes: 66, NAPPolicy: Balanced Security and Connectivity, NAT_InitiatorPort: 57113, NAT_ResponderPort: 135, NAT_InitiatorIP: 10.129.0.62, NAT_ResponderIP: 10.129.0.171, ClientAppDetector: AppID'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ NAT_InitiatorPort:@ESTRING::,@ NAT_ResponderPort:@ESTRING::,@ NAT_InitiatorIP:@ESTRING::,@ NAT_ResponderIP:@ESTRING::,@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-49" class="cisco_ftd">
+				<!--': %FTD-7-430002: EventPriority: Low, DeviceUUID: 6a2b77ce-0985-11ee-b104-e287deda077e, InstanceID: 1, FirstPacketSecond: 2023-08-28T19:07:52Z, ConnectionID: 61154, AccessControlRuleAction: Allow, SrcIP: 10.11.12.4, DstIP: 10.129.0.171, SrcPort: 57855, DstPort: 53, Protocol: udp, IngressInterface: inside, EgressInterface: outside, IngressZone: inside, EgressZone: outside, IngressVRF: Global, EgressVRF: Global, ACPolicy: NetSafe MXDR Access Policy, AccessControlRuleName: Permitir Trafego Outbound, Prefilter Policy: Default Prefilter Policy, Client: DNS, ApplicationProtocol: DNS, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 83, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity, DNSQuery: us.logapi.skyhigh.cloud, DNSRecordType: a host address, DNSResponseType: No Error, ReferencedHost: us.logapi.skyhigh.cloud, NAT_InitiatorPort: 57855, NAT_ResponderPort: 53, NAT_InitiatorIP: 10.129.0.62, NAT_ResponderIP: 10.129.0.171, ClientAppDetector: AppID'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:applicationprotocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ DNSQuery: @ESTRING:dnsquery:,@ DNSRecordType:@ESTRING:dnsrecordtype:,@ DNSResponseType: @ESTRING:dnsresponsetype:,@ ReferencedHost: @ESTRING:referencehost:,@ NAT_InitiatorPort: @NUMBER:natinitport:,@, NAT_ResponderPort: @ESTRING:natrespport:,@ NAT_InitiatorIP: @ESTRING:natinitip:,@ NAT_ResponderIP: @ESTRING:natrespip:,@ ClientAppDetector: @ESTRING:clientappdetector:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-49" class="cisco_ftd">
+				<!--': : %FTD-7-430002: EventPriority: Low, DeviceUUID: 6a2b77ce-0985-11ee-b104-e287deda077e, InstanceID: 2, FirstPacketSecond: 2023-08-28T19:32:08Z, ConnectionID: 58342, AccessControlRuleAction: Allow, SrcIP: 10.11.12.5, DstIP: 138.201.20.61, SrcPort: 123, DstPort: 123, Protocol: udp, IngressInterface: inside, EgressInterface: outside, IngressZone: inside, EgressZone: outside, IngressVRF: Global, EgressVRF: Global, ACPolicy: NetSafe MXDR Access Policy, AccessControlRuleName: Permitir Trafego Outbound, Prefilter Policy: Default Prefilter Policy, Client: NTP client, ApplicationProtocol: NTP, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 90, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity, NAT_InitiatorPort: 9199, NAT_ResponderPort: 123, NAT_InitiatorIP: 10.129.0.62, NAT_ResponderIP: 138.201.20.61, ClientAppDetector: AppID'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:applicationprotocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ NAT_InitiatorPort: @NUMBER:natinitport:,@, NAT_ResponderPort: @ESTRING:natrespport:,@ NAT_InitiatorIP: @ESTRING:natinitip:,@ NAT_ResponderIP: @ESTRING:natrespip:,@ ClientAppDetector: @ESTRING:clientappdetector:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-50" class="cisco_ftd">
+				<!--': %FTD-7-430002: EventPriority: Low, DeviceUUID: 6a2b77ce-0985-11ee-b104-e287deda077e, InstanceID: 2, FirstPacketSecond: 2023-08-29T12:27:10Z, ConnectionID: 63410, AccessControlRuleAction: Allow, SrcIP: 10.11.12.3, DstIP: 209.197.3.8, ICMPType: Echo Request, ICMPCode: No Code, Protocol: icmp, IngressInterface: inside, EgressInterface: outside, IngressZone: inside, EgressZone: outside, IngressVRF: Global, EgressVRF: Global, ACPolicy: NetSafe MXDR Access Policy, AccessControlRuleName: Permitir Trafego Outbound, Prefilter Policy: Default Prefilter Policy, Client: ICMP client, ApplicationProtocol: ICMP, InitiatorPackets: 1, ResponderPackets: 0, InitiatorBytes: 106, ResponderBytes: 0, NAPPolicy: Balanced Security and Connectivity, NAT_InitiatorPort: 8, NAT_InitiatorIP: 10.129.0.62, NAT_ResponderIP: 209.197.3.8, ClientAppDetector: AppID'-->
+				<patterns>
+					<pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, ICMPType: @ESTRING:icmptype:,@ ICMPCode: @ESTRING:icmpcode:,@ Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:applicationprotocol:,@ InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ NAT_InitiatorPort: @NUMBER:natinitport:,@, NAT_InitiatorIP: @ESTRING:natinitip:,@ NAT_ResponderIP: @ESTRING:natrespip:,@ ClientAppDetector: @ESTRING:clientappdetector:@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">firewall</value>
+				</values>
+			</rule>
+      <rule id="cisco_ftd_custom-1024-51" class="cisco_ftd">
+        <!--: %FTD-7-430003: EventPriority: Low, DeviceUUID: 6a2b77ce-0985-11ee-b104-e287deda077e, InstanceID: 1, FirstPacketSecond: 2024-05-23T14:31:57Z, ConnectionID: 33731, AccessControlRuleAction: Allow, SrcIP: 10.11.12.3, DstIP: 104.208.16.94, SrcPort: 23882, DstPort: 443, Protocol: tcp, IngressInterface: inside, EgressInterface: outside, IngressZone: inside, EgressZone: outside, IngressVRF: Global, EgressVRF: Global, ACPolicy: NetSafe MXDR Access Policy, AccessControlRuleName: TESTE_10.11.12.3_WAN, Prefilter Policy: Default Prefilter Policy, Client: SSL client, ApplicationProtocol: HTTPS, WebApplication: Microsoft Teams, ConnectionDuration: 1, InitiatorPackets: 16, ResponderPackets: 14, InitiatorBytes: 5907, ResponderBytes: 5350, NAPPolicy: Balanced Security and Connectivity, URL: https://watson.events.data.microsoft.com, NAT_InitiatorPort: 23882, NAT_ResponderPort: 443, NAT_InitiatorIP: 10.129.0.62, NAT_ResponderIP: 104.208.16.94, ClientAppDetector: AppID-->
+        <patterns>
+          <pattern>@ESTRING::%@@ESTRING:eventid::@ EventPriority: @ESTRING:priority:,@ DeviceUUID: @ESTRING:deviceid:, @InstanceID: @ESTRING:instanceid:, @FirstPacketSecond: @ESTRING::,@ ConnectionID: @ESTRING:connectionid:,@ AccessControlRuleAction: @ESTRING:action:,@ SrcIP: @IPv4:srcipv4:@, DstIP: @IPv4:dstipv4:@, SrcPort: @NUMBER:srcport:@, DstPort: @NUMBER:dstport:@, Protocol: @ESTRING:protocol:,@ IngressInterface: @ESTRING:localinterface:,@ EgressInterface: @ESTRING:foreigninterface:,@ IngressZone: @ESTRING:srczone:,@ EgressZone: @ESTRING:dstzone:,@ IngressVRF: @ESTRING::,@ EgressVRF: @ESTRING::,@ ACPolicy: @ESTRING:policyid:,@ AccessControlRuleName: @ESTRING:rule:,@ Prefilter Policy: @ESTRING:policy:,@ Client: @ESTRING:client:,@ ApplicationProtocol: @ESTRING:next_protocol:,@ WebApplication: @ESTRING:application:,@ ConnectionDuration: @NUMBER:duration:@, InitiatorPackets: @NUMBER:sentpackets:@, ResponderPackets: @NUMBER:rcvdpackets:@, InitiatorBytes: @NUMBER:sentbytes:@, ResponderBytes: @NUMBER:rcvdbytes:@, NAPPolicy: @ESTRING::,@ URL: @ESTRING:url:,@ NAT_InitiatorPort:@ESTRING:nat_srcport:,@ NAT_ResponderPort:@ESTRING:nat_dstport:,@ NAT_InitiatorIP:@ESTRING:nat_dstipv4:,@ NAT_ResponderIP:@ESTRING:nat_srcipv4:,@ ClientAppDetector:@ESTRING:appdetector:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+    </rules>
+  </ruleset>
+  <ruleset id="cisco_firepower-custom-1" description="Custom parsing rule for Cisco Firepower logs" provider="Helix Parsing Team" url="">
+    <rules>
+      <rule id="cisco_firepower-csys-1026-01" class="cisco_firepower">
+        <!--sfdccsm: [audit] fmc.unimed.local: iseagent@10.101.3.156, API, DELETE https://10.101.0.95/api/identity/v1/identity/useridentity/AAAAAAAAAAAAAP__CmUDnAIAAAAAAAAA-Kc= OK (200) - The request has succeeded-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:policy:,@ @ESTRING:httpmethod: @@ESTRING:url: @@ESTRING:status: (@@NUMBER:statuscode:@) - @ESTRING:msg:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-02" class="cisco_firepower">
+        <!--sfdccsm: [audit] fmc.unimed.local: @10.101.3.85, API, POST https://10.101.0.95/api/identity/v1/identity/useridentity Unauthorized (401) - The request requires user authentication-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE::\W@@IPv4:srcipv4:@, @ESTRING:policy:,@ @ESTRING:httpmethod: @@ESTRING:url: @@ESTRING:status: (@@NUMBER:statuscode:@) - @ESTRING:msg:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-03" class="cisco_firepower">
+        <!--sfdccsm: [audit] fmc.unimed.local: iseagent@10.101.2.159, Authenticate, Authentication Success-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:status:,@ @PCRE:msg:\S+ Success@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-04" class="cisco_firepower">
+        <!--Syncd.pl: [audit] fmc.unimed.local: csm_processes@Default User IP, High Availability, Synchronization - Save User-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@PCRE::Default User IP@, @ESTRING:policy:,@ @ESTRING:status: -@ @ESTRING:msg:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-05" class="cisco_firepower">
+        <!--login.cgi: [audit] fmc.unimed.local: iseagent@10.101.2.218, Session Expiration, New session source IP - 10.101.2.218-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:msg:,@ New session source IP - @IPv4::@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-06" class="cisco_firepower">
+        <!--ActionQueueScrape.pl: [audit] fmc.unimed.local: csm_processes@Default User IP, Login, Login Success-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@PCRE::Default User IP@, @ESTRING:status:,@ @PCRE:msg:\S+ Success@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-07" class="cisco_firepower">
+        <!--ActionQueueScrape.pl: [audit] fmc.unimed.local: F09122@localhost, Task Queue, Policy Deployment to FTD01 - SUCCESSs-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@PCRE::localhost@, @PCRE:policy:Task Queue@, @ESTRING:msg:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-08" class="cisco_firepower">
+        <!--login.cgi: [audit] fmc.unimed.local: admin@10.121.0.6, Login, Login Failed-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:status:,@ @PCRE:msg:Login \S+@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-09" class="cisco_firepower">
+        <!--expire-session.pl: [audit] fmc.unimed.local: f05222@Default User IP, Session Expiration, Session expired due to inactivity (f05222)-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@PCRE::Default User IP@, @ESTRING:status:,@ @PCRE:msg:Session .+@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-10" class="cisco_firepower">
+        <!--mojo_server.pl: [audit] fmc.unimed.local: f05222@127.0.0.1, Session Expiration, Session expired due to inactivity (f05222)-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:status:,@ @PCRE:msg:Session .+@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-11" class="cisco_firepower">
+        <!--sf-backup-inator.pl: [audit] fmc.unimed.local: csm_processes@Default User IP, System > Tools > Backup/Restore > Backup Management > Firepower Management Centre, Device fmc.unimed.local backup successful-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@PCRE::Default User IP@, @ESTRING:policy:,@ @PCRE:msg:Device .+@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-12" class="cisco_firepower">
+        <!--exec_perl.pl: [audit] fmc.unimed.local: Default User@Default User IP, System > Tools > Backup/Restore > Backup Management > Managed Device Backup, Device 10.101.0.98 backup successful-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\S+ User@@PCRE::\W@@PCRE::Default User IP@, @ESTRING:policy:,@ @PCRE:msg:Device .+@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-13" class="cisco_firepower">
+        <!--mojo_server.pl: [audit] fmc.unimed.local: Invalid User@127.0.0.1, Login, Login Failed-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\S+ User@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:status:,@ @PCRE:msg:Login \S+@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-14" class="cisco_firepower">
+        <!--time_range.cgi: [audit] fmc.unimed.local: netsafe@10.150.0.100, /date/time_range.cgi, Page View-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:\w+@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:filename:,@ @PCRE:msg:Page View@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-15" class="cisco_firepower">
+        <!--sfdccsm: [audit] fmc.unimed.local: Unknown@10.101.2.112, Unauthorized, Unauthorized Action-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @PCRE:username:Unknown@@PCRE::\W@@IPv4:srcipv4:@, @ESTRING:status:,@ @ESTRING:msg:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+      <rule id="cisco_firepower-csys-1026-16" class="cisco_firepower">
+        <!--'sfdccsm: [audit] fmc.unimed.local: F09122@10.101.2.112, Policies > Access Control > Access Control > Policy Editor, Save Policy Unimed Belém'-->
+        <patterns>
+          <pattern>@ESTRING:::@ [@ESTRING:category:]@ @ESTRING:hostname::@ @ESTRING:username:,@ @ESTRING:object:,@ @ANYSTRING:msg:@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">firewall</value>
+        </values>
+      </rule>
+    </rules>
+  </ruleset>
+  <ruleset id="ms_windows_event_custom-1000-01" description="Custom parsing rule for Windows logs" provider="NetSafe Parsing Team" url="">
+		<rules>
+			<rule id="ms_windows_event_custom-1000-01" class="ms_windows_event">
+				<!--'{"EventTime":"2023-08-15 11:12:36","Hostname":"WIN-D6HMCML2ONM.laboratorionetsafe.local","Keywords":-9214364837600034816,"EventType":"AUDIT_SUCCESS","SeverityValue":2,"Severity":"INFO","EventID":5136,"SourceName":"Microsoft-Windows-Security-Auditing","ProviderGuid":"{54849625-5478-4994-A5BA-3E3B0328C30D}","Version":0,"Task":14081,"OpcodeValue":0,"RecordNumber":20800377,"ActivityID":"{522D7260-A399-0001-7F72-2D5299A3D901}","ProcessID":628,"ThreadID":6404,"Channel":"Security","Message":"A directory service object was modified.\r\n\t\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-2549306507-714051610-2122438589-1204\r\n\tAccount Name:\t\tigor.queiroz\r\n\tAccount Domain:\t\tLABORATORIONETS\r\n\tLogon ID:\t\t0xF5FFC214\r\n\r\nDirectory Service:\r\n\tName:\tlaboratorionetsafe.local\r\n\tType:\tActive Directory Domain Services\r\n\t\r\nObject:\r\n\tDN:\tcn={228BA2D6-50D9-4D67-9548-2FECB9A00DC6},cn=policies,cn=system,DC=laboratorionetsafe,DC=local\r\n\tGUID:\t{08F6DE7C-57DD-4E01-8C97-8DFEEF1CD8F3}\r\n\tClass:\tgroupPolicyContainer\r\n\t\r\nAttribute:\r\n\tLDAP Display Name:\tdisplayName\r\n\tSyntax (OID):\t2.5.5.12\r\n\tValue:\thelix\r\n\t\r\nOperation:\r\n\tType:\tValue Added\r\n\tCorrelation ID:\t{2DA1843A-D638-4200-80C7-06D5519279E1}\r\n\tApplication Correlation ID:\t-","Category":"Directory Service Changes","Opcode":"Info","OpCorrelationID":"{2DA1843A-D638-4200-80C7-06D5519279E1}","AppCorrelationID":"-","SubjectUserSid":"S-1-5-21-2549306507-714051610-2122438589-1204","SubjectUserName":"igor.queiroz","SubjectDomainName":"LABORATORIONETS","SubjectLogonId":"0xf5ffc214","DSName":"laboratorionetsafe.local","DSType":"%%14676","ObjectDN":"cn={228BA2D6-50D9-4D67-9548-2FECB9A00DC6},cn=policies,cn=system,DC=laboratorionetsafe,DC=local","ObjectGUID":"{08F6DE7C-57DD-4E01-8C97-8DFEEF1CD8F3}","ObjectClass":"groupPolicyContainer","AtributeLDAPDisplayName":"displayName","AttributeSyntaxOID":"2.5.5.12","AttributeValue":"helix","OperationType":"%%14674","EventReceivedTime":"2023-08-15 11:12:37","SourceModuleName":"ms_vistalog_filtered","SourceModuleType":"im_msvistalog"}'-->
+				<patterns>
+					<pattern>@ESTRING::"@EventTime":"@ESTRING::,@"Hostname":"@ESTRING:hostname:"@,"Keywords":@ESTRING:keywords:,@"EventType":"@ESTRING:eventtype:"@,"SeverityValue":@NUMBER:severityvalue:,@,"Severity":"@ESTRING:severity:"@,"EventID":@NUMBER:eventid:,@,"SourceName":"@ESTRING:source:"@,"ProviderGuid":"@ESTRING:providerguid:"@,"Version":@NUMBER:version:,@,"Task":@NUMBER:task:,@,"OpcodeValue":@NUMBER::,@,"RecordNumber":@NUMBER:recordid:,@,"ActivityID":"@ESTRING:activityid:"@,"ProcessID":@NUMBER:processid:,@,"ThreadID":@NUMBER:threadid:,@,"Channel":"Security","Message":"@ESTRING:msg:"@,"Category":"Directory Service Changes","Opcode":"Info","OpCorrelationID":"@ESTRING::"@,"AppCorrelationID":"@ESTRING::"@,"SubjectUserSid":"@ESTRING:callinguid:"@,"SubjectUserName":"@ESTRING:username:"@,"SubjectDomainName":"@ESTRING:callingdomain:"@,"SubjectLogonId":"@ESTRING:callinglogonid:"@,"DSName":"@ESTRING::"@,"DSType":"@ESTRING::"@,"ObjectDN":"@ESTRING::"@,"ObjectGUID":"@ESTRING::"@,"ObjectClass":"@ESTRING::"@,"@ESTRING::"@:"@ESTRING::"@,"AttributeSyntaxOID":"@ESTRING::"@,"AttributeValue":"@ESTRING::"@,"OperationType":"@ESTRING::"@,"EventReceivedTime":"@ESTRING::"@,"SourceModuleName":"@ESTRING:sourcemodulename:"@,"SourceModuleType":"@ESTRING::"@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">ms_windows_event</value>
+				</values>
+			</rule>
+      <rule id="ms_windows_event_custom-1000-02" class="ms_windows_event">
+				<!--'{"EventTime":"2023-11-10 14:34:32","Hostname":"WIN-D6HMCML2ONM.laboratorionetsafe.local","Keywords":-9214364837600034816,"EventType":"AUDIT_SUCCESS","SeverityValue":2,"Severity":"INFO","EventID":4732,"SourceName":"Microsoft-Windows-Security-Auditing","ProviderGuid":"{54849625-5478-4994-A5BA-3E3B0328C30D}","Version":0,"Task":13826,"OpcodeValue":0,"RecordNumber":25553447,"ProcessID":636,"ThreadID":2204,"Channel":"Security","Message":"A member was added to a security-enabled local group.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-2549306507-714051610-2122438589-1204\r\n\tAccount Name:\t\tigor.queiroz\r\n\tAccount Domain:\t\tLABORATORIONETS\r\n\tLogon ID:\t\t0x6EE2E\r\n\r\nMember:\r\n\tSecurity ID:\t\tS-1-5-21-2549306507-714051610-2122438589-1207\r\n\tAccount Name:\t\tCN=test_lr,CN=Users,DC=laboratorionetsafe,DC=local\r\n\r\nGroup:\r\n\tSecurity ID:\t\tS-1-5-32-544\r\n\tGroup Name:\t\tAdministrators\r\n\tGroup Domain:\t\tBuiltin\r\n\r\nAdditional Information:\r\n\tPrivileges:\t\t-","Category":"Security Group Management","Opcode":"Info","MemberName":"CN=test_lr,CN=Users,DC=laboratorionetsafe,DC=local","MemberSid":"S-1-5-21-2549306507-714051610-2122438589-1207","TargetUserName":"Administrators","TargetDomainName":"Builtin","TargetSid":"S-1-5-32-544","SubjectUserSid":"S-1-5-21-2549306507-714051610-2122438589-1204","SubjectUserName":"igor.queiroz","SubjectDomainName":"LABORATORIONETS","SubjectLogonId":"0x6ee2e","PrivilegeList":"-","EventReceivedTime":"2023-11-10 14:34:33","SourceModuleName":"ms_vistalog_filtered","SourceModuleType":"im_msvistalog"}'-->
+				<patterns>
+					<pattern>@ESTRING::"@EventTime":"@ESTRING::,@"Hostname":"@ESTRING:hostname:"@,"Keywords":@ESTRING:keywords:,@"EventType":"@ESTRING:eventtype:"@,"SeverityValue":@NUMBER:severityvalue:,@,"Severity":"@ESTRING:severity:"@,"EventID":@NUMBER:eventid:,@,"SourceName":"@ESTRING:source:"@,"ProviderGuid":"@ESTRING:providerguid:"@,"Version":@NUMBER:version:,@,"Task":@NUMBER:task:,@,"OpcodeValue":@NUMBER::,@,"RecordNumber":@NUMBER:recordid:,@,"ProcessID":@NUMBER:processid:,@,"ThreadID":@NUMBER:threadid:,@,"Channel":"Security","Message":"@ESTRING:msg:.@@ESTRING::Name:\t\t@@ESTRING:callingusername:\@@ESTRING::CN=@@ESTRING:membername:,@@ESTRING::Name:\t\t@@ESTRING:group:\@@ESTRING::"TargetUserName":"@@ESTRING:targetusername:"@,"TargetDomainName":"@ESTRING:targetdomain:"@@ESTRING::"SubjectUserName":"@@ESTRING:username:"@,"SubjectDomainName":"@ESTRING:domainname:"@</pattern>
+				</patterns>
+				<values>
+					<value name="metaclass">ms_windows_event</value>
+				</values>
+			</rule>
+		</rules>
+	</ruleset>
+  <ruleset id="mcafee_web_gw-custom-1" description="Custom parsing rule for mcafee_web_gw logs" provider="Helix Parsing Team" url="">
+    <pattern>mwg</pattern>
+    <rules>
+      <rule id="mcafee_web_gw-csys-1179-01" class="mcafee_web_gw">
+        <patterns>
+          <pattern>[@ESTRING:tmp.day:/@@ESTRING:tmp.month:/@@ESTRING:tmp.year::@@ESTRING:tmp.time: @@ESTRING:timezone:]@ "@ESTRING:username:"@ @IPv4:srcipv4:@ @NUMBER:statuscode:@ "@ESTRING:httpmethod: @@PCRE:method:https?@://@PCRE:domain:[^/]+@@ESTRING:uri: @@ESTRING:protocol:/@@ESTRING:protocolver:"@ "@ESTRING:category:"@ "@ESTRING:severity:"@ "@ESTRING:content:"@ @NUMBER:sentbytes:@ @NUMBER:rcvdbytes:@ "@ESTRING:useragent:"@ "@ESTRING:virus:"@ "@NUMBER:actioncode:@" "@ESTRING::"@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">http_proxy</value>
+          <value name="eventtime">${tmp.year}-$(if ("${tmp.month}" == "Jan") 01 $(if ("${tmp.month}" == "Feb") 02 $(if ("${tmp.month}" == "Mar") 03 $(if ("${tmp.month}" == "Apr") 04 $(if ("${tmp.month}" == "May") 05 $(if ("${tmp.month}" == "Jun") 06 $(if ("${tmp.month}" == "Jul") 07 $(if ("${tmp.month}" == "Aug") 08 $(if ("${tmp.month}" == "Sep") 09 $(if ("${tmp.month}" == "Oct") 10 $(if ("${tmp.month}" == "Nov") 11 $(if ("${tmp.month}" == "Dec") 12 ${tmp.month}))))))))))))-${tmp.day} ${tmp.time}</value>
+        </values>
+      </rule>
+      <rule id="mcafee_web_gw-csys-1179-02" class="mcafee_web_gw">
+        <patterns>
+          <pattern>[@ESTRING:tmp.day:/@@ESTRING:tmp.month:/@@ESTRING:tmp.year::@@ESTRING:tmp.time: @@ESTRING:timezone:]@ "@ESTRING:username:"@ @IPv4:srcipv4:@ @NUMBER:statuscode:@ "@ESTRING:httpmethod: @@ESTRING:domain::@@NUMBER:dstport:@ @ESTRING:protocol:/@@ESTRING:protocolver:"@ "@ESTRING:category:"@ "@ESTRING:severity:"@ "@ESTRING:content:"@ @NUMBER:sentbytes:@ @NUMBER:rcvdbytes:@ "@ESTRING:useragent:"@ "@ESTRING:virus:"@ "@NUMBER:actioncode:@" "@ESTRING::"@</pattern>
+        </patterns>
+        <values>
+          <value name="metaclass">http_proxy</value>
+          <value name="eventtime">${tmp.year}-$(if ("${tmp.month}" == "Jan") 01 $(if ("${tmp.month}" == "Feb") 02 $(if ("${tmp.month}" == "Mar") 03 $(if ("${tmp.month}" == "Apr") 04 $(if ("${tmp.month}" == "May") 05 $(if ("${tmp.month}" == "Jun") 06 $(if ("${tmp.month}" == "Jul") 07 $(if ("${tmp.month}" == "Aug") 08 $(if ("${tmp.month}" == "Sep") 09 $(if ("${tmp.month}" == "Oct") 10 $(if ("${tmp.month}" == "Nov") 11 $(if ("${tmp.month}" == "Dec") 12 ${tmp.month}))))))))))))-${tmp.day} ${tmp.time}</value>
+        </values>
+      </rule>
+    </rules>
+  </ruleset>
+  <ruleset id="beyondtrust" description="Custom parsing rule for BeyondTrust BeyondInsight logs" provider="Helix Parsing Team" url="">
+  <rules>
+    <rule id="beyondtrust-csys-1027-01" class="beyondtrust">
+      <!--2023-02-16T20:11:53Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "",Agent ID: "",Agent Ver: "",Category: "Testing",Source Host: "",Event Desc: "Syslog test payload",Event Name: "Test",OS: "",Event Severity: "",Source IP: "",Event Subject: "",Event Type: "",User: "",Workgroup Desc: "",Workgroup ID: "",Workgroup Location: ""-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-02" class="beyondtrust">
+      <!--2023-02-16T20:18:15Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "",Agent ID: "PBPS",Agent Ver: "22.4.0.1101",Category: "System",Source Host: "SRVIDC34",Event Desc: "System",Event Name: "Administrators",OS: "",Event Severity: "0",Source IP: "10.150.0.34",Event Subject: "10.150.0.34",Event Type: "0",User: "btadmin",Workgroup Desc: "",Workgroup ID: "",Workgroup Location: "",bt_Category: "System",LogID: "54880",LogTime: "2/16/2023 8:17:29 PM",Details: "ISA Release #31547, Ticket #, TicketSystem=",UserName: "btadmin",RoleUsed: "Administrators",ObjectTypeID: "9",ObjectType: "Password",ObjectID: "31547",Operation: "Retrieve",Target: "Domain:netsafecorp.local MAccount:srv_cofre",UserID: "1",IPAddress: "10.0.2.55"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,bt_Category: "@ESTRING::"@,LogID: "@NUMBER::@",LogTime: "@ESTRING::"@,Details: "@ESTRING::"@,UserName: "@ESTRING::"@,RoleUsed: "@ESTRING::"@,ObjectTypeID: "@NUMBER::@",ObjectType: "@ESTRING::"@,ObjectID: "@NUMBER::@",Operation: "@ESTRING::"@,Target: "@ESTRING:target:"@,UserID: "@NUMBER:uid:@",IPAddress: "@IPv4:dstipv4:@"</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-03" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Ports",Source Host: "SRVIDC34",Event Desc: "Local",Event Name: "TCP: 22",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.160",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",PortNum: "22",PortBanner: "SSH-2.0-OpenSSH_7.8",Port State: "Open",Connected: "True",Detected Protocol: "SSH",ExcludedFromProtocolDetection: "False"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,PortNum: "@NUMBER:srcport:@",PortBanner: "@ESTRING::"@,Port State: "@ESTRING::"@,Connected: "@ESTRING::"@,Detected Protocol: "@ESTRING::"@,ExcludedFromProtocolDetection: "@ESTRING::"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-04" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Software",Source Host: "SRVIDC34",Event Desc: "Musarubra US LLC.",Event Name: "Trellix Endpoint Security Platform",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.20",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",Name: "Trellix Endpoint Security Platform",Version: "10.7.0",Vendor: "Musarubra US LLC.",Installation Path: "C:\\Program Files\\McAfee\\Endpoint Security\\"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,Name: "@ESTRING::"@,Version: "@ESTRING::"@,Vendor: "@ESTRING:manufacturer:"@,Installation Path: "@ESTRING:filepath:"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-06" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Authentication",Source Host: "SRVIDC34",Event Desc: "The selected credential has LOCALADMIN privileges",Event Name: "NetBIOS Credential",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.19",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",Credential: "srv_cofre - Functional Account",bt_User: "netsafecorp.local\\srv_cofre",Authenticated: "True",Details: "The selected credential has LOCALADMIN privileges"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,Credential: "@ESTRING::"@,bt_User: "@ESTRING::"@,Authenticated: "@ESTRING::"@,Details: "@ESTRING:info:"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-07" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Software",Source Host: "SRVIDC34",Event Desc: "Microsoft Corporation",Event Name: "Provedor Microsoft Analysis Services OLE DB",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.20",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",Name: "Provedor Microsoft Analysis Services OLE DB",Version: "15.0.2000.770",Vendor: "Microsoft Corporation"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,Name: "@ESTRING::"@,Version: "@ESTRING::"@,Vendor: "@ESTRING:manufacturer:"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-08" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Asset",Source Host: "SRVIDC34",Event Desc: "Data Describing the specific Asset",Event Name: "Asset Data",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.222",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",Asset Name: "SRVIDC21.netsafecorp.local",Asset Type: "Server",Workgroup/Domain Name: "netsafecorp.local",DNS Name: "SRVIDC21.netsafecorp.local"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,Asset Name: "@ESTRING::"@,Asset Type: "@ESTRING::"@,Workgroup/Domain Name: "@ESTRING:domain:"@,DNS Name: "@ESTRING::"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-09" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Services",Source Host: "SRVIDC34",Event Desc: "[[]RUNNING[]]     McAfee Validation Trust Protection Service",Event Name: "mfevtp",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.20",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",Description: "[[]RUNNING[]]     McAfee Validation Trust Protection Service",Display Name: "McAfee Validation Trust Protection Service",Image Path: """C:\\Program Files\\Common Files\\McAfee\\SystemCore\\mfemms.exe""",Log On As: "LocalSystem",State: "RUNNING",Startup Type: "Manual",Service DLL: """C:\\Program Files\\Common Files\\McAfee\\SystemCore\\mfemms.exe""",Name: "mfevtp"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,Description: "@ESTRING::Display Name:@ "@ESTRING::"@,Image Path: "@ESTRING:filepath:"@,</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-10" class="beyondtrust">
+      <!--2023-02-16T20:18:15Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "",Agent ID: "AppAudit",Agent Ver: "",Category: "Login",Source Host: "",Event Desc: "",Event Name: "Login",OS: "",Event Severity: "0",Source IP: "10.0.2.55",Event Subject: "5",Event Type: "0",User: "douglas.baiao",Workgroup Desc: "",Workgroup ID: "",Workgroup Location: "",AuditID: "11834",ActionType: "Login",SystemName: "Login",AppUserID: "5",CreateDate: "2/16/2023 8:17:32 PM",UserName: "douglas.baiao",IPAddress: "10.0.2.55",User Name: "douglas.baiao",Source: "srvidc34.netsafecorp.local"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,AuditID: "@ESTRING::"@,ActionType: "@ESTRING:action:"@,SystemName: "@ESTRING::"@,AppUserID: "@NUMBER:uid:@",CreateDate: "@ESTRING::"@,UserName: "@ESTRING::"@,IPAddress: "@IPv4:dstipv4:@",User Name: "@ESTRING::"@,Source: "@ESTRING:source:"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-11" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Ports",Source Host: "SRVIDC34",Event Desc: "Local",Event Name: "TCP: 1433",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.20",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",PortNum: "1433",PortBanner: "",Port State: "Open",Connected: "True",ExcludedFromProtocolDetection: "False"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,PortNum: "@NUMBER:srcport:@",PortBanner: "@ESTRING::"@,Port State: "@ESTRING::"@,Connected: "@ESTRING::"@,ExcludedFromProtocolDetection: "@ESTRING::"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-12" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Services",Source Host: "SRVIDC34",Event Desc: "[[]RUNNING[]]     Trellix Agent Service",Event Name: "masvc",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.222",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location",Description: "[[]RUNNING[]]     Trellix Agent Service",Display Name: "Trellix Agent Service",Image Path: "C:\\Program Files\\McAfee\\Agent\\masvc.exe"" /ServiceStart",Log On As: "LocalSystem",State: "RUNNING",Startup Type: "Automatic",Service DLL: "C:\\Program Files\\McAfee\\Agent\\masvc.exe"" /ServiceStart",Name: "masvc"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,Description: "@ESTRING::"@,Display Name: "@ESTRING::"@,Image Path: "@ESTRING:filepath:",@Log On As: "@ESTRING::"@,State: "@ESTRING:status:"@,Startup Type: "@ESTRING::"@,Service DLL: "@ESTRING::",@Name: "@ESTRING::"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-13" class="beyondtrust">
+      <!--2023-02-16T20:17:45Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "",Agent ID: "AppAudit",Agent Ver: "",Category: "Logout",Source Host: "",Event Desc: "",Event Name: "Logout",OS: "",Event Severity: "0",Source IP: "10.0.2.55",Event Subject: "1",Event Type: "0",User: "btadmin",Workgroup Desc: "",Workgroup ID: "",Workgroup Location: "",AuditID: "11831",ActionType: "Logout",SystemName: "Logout",AppUserID: "1",CreateDate: "2/16/2023 8:16:45 PM",UserName: "btadmin",IPAddress: "10.0.2.55",Source: "srvidc34.netsafecorp.local"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@,AuditID: "@NUMBER::@",ActionType: "@ESTRING::"@,SystemName: "@ESTRING::"@,AppUserID: "@NUMBER::@",CreateDate: "@ESTRING::"@,UserName: "@ESTRING::"@,IPAddress: "@IPv4:dstipv4:@",Source: "@ESTRING:source:"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+    <rule id="beyondtrust-csys-1027-14" class="beyondtrust">
+      <!--2023-02-17T01:14:58Z 10.150.0.34 BeyondInsight - - - ÔªøAgent Desc: "BTDiscovery",Agent ID: "retina",Agent Ver: "22.4.0.1092",Category: "Date",Source Host: "SRVIDC34",Event Desc: "2/16/2023 10:07:18 PM",Event Name: "Report Date",OS: "Windows Server 2016 Standard",Event Severity: "0",Source IP: "127.0.0.1",Event Subject: "10.150.0.20",Event Type: "0",User: "SRVIDC34$",Workgroup Desc: "BeyondTrust",Workgroup ID: "BeyondTrust Workgroup",Workgroup Location: "Default Location"-->
+      <patterns>
+        <pattern>@PCRE:eventtime:\d{1,4}-\d{1,2}-\d{1,2}\w\d{1,2}:\d{1,2}:\d{1,2}\w@ @IPv4:ipv4:@ BeyondInsight - - - @ESTRING::Agent Desc:@ "@ESTRING::"@,Agent ID: "@ESTRING:agentid:"@,Agent Ver: "@ESTRING:version:"@,Category: "@ESTRING:category:"@,Source Host: "@ESTRING:srchost:"@,Event Desc: "@ESTRING:description:"@,Event Name: "@ESTRING:eventname:"@,OS: "@ESTRING:os:"@,Event Severity: "@ESTRING:severity:"@,Source IP: "@IPv4:srcipv4:@",Event Subject: "@ESTRING:subject:"@,Event Type: "@ESTRING:eventtype:"@,User: "@ESTRING:username:"@,Workgroup Desc: "@ESTRING::"@,Workgroup ID: "@ESTRING::"@,Workgroup Location: "@ESTRING::"@</pattern>
+      </patterns>
+      <values>
+        <value name="metaclass">auth,privilege</value>
+      </values>
+    </rule>
+  </rules>
+</ruleset>
+</patterndb>

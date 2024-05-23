@@ -158,7 +158,7 @@ def main():
 		exit (1)
 
 	print_errors()
-	#print_warnings()
+	print_warnings()
 
 	return 0
 

@@ -29,3 +29,4 @@ Instale o syslog
 ```
 
 
+./new_manual_run.sh hexfvw463.xml log.txt analise.txt matching_logs.txt unmatching_logs.txt
