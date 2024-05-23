@@ -28,5 +28,5 @@ Instale o syslog
   sudo apt-install syslog-ng -y
 ```
 
-
-./new_manual_run.sh hexfvw463.xml log.txt analise.txt matching_logs.txt unmatching_logs.txt
+## Rodando o bash
+./new_manual_run.sh rule.xml log.txt output.txt matching_logs.txt unmatching_logs.txt
