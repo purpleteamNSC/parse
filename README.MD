@@ -13,19 +13,19 @@ Para rodar esse projeto, você vai precisar instalar :
 Atualize o linux
 
 ```bash
-  apt update
+  sudo apt-get update
 ```
 
 Instale o python
 
 ```bash
-  apt install python3
+  sudo apt-get install python3 -y
 ```
 
 Instale o syslog
 
 ```bash
-  apt install syslog-ng
+  sudo apt-install syslog-ng -y
 ```
 
 
